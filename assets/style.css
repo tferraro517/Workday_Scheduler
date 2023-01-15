@@ -1,0 +1,19 @@
+body{
+    font-family: Arial;
+    text-align: center;
+}
+
+.main-page {
+    display: block;  
+}
+
+#starter-button {
+    font-family: georgia; 
+    background-color:blueviolet;
+}
+/* .question-area {
+
+} */
+.hide {
+    display: none;
+} 
