@@ -2,8 +2,8 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-    $('#currentDay').text(dayjs().format('MMMM dddd, YYYY'));
-  
+$("#currentDay").text(dayjs().format("MMMM dddd, YYYY"));
+
 $(function () {
   var saveBtn = $(".saveBtn");
 
@@ -16,10 +16,43 @@ $(function () {
     var key = $(this).parent()[0].id;
     localStorage.setItem(key, textData);
 
-    var today = dayjs().format('h.mm.ss');
-    console.log($('#currentDay').text(today));
+    var today = dayjs().format("h.mm.ss");
+    console.log($("#currentDay").text(today));
 
+  
   });
+
+  function updateHour() {
+    var currentHour = parseInt(dayjs().hour());
+    $(".time-block").each(function () {
+      var blockHour = parseInt($(this).attr("id").split("-")[1]);
+      console.log(blockHour);
+
+      if (blockHour < currentHour) {
+        $(this).addClass("past");
+      } else if (blockHour == currentHour) {
+        $(this).removeClass("past");
+        $(this).addClass("present");
+      } else {
+        $(this).removeClass("past");
+        $(this).removeClass("present");
+        $(this).addClass("future");
+      }
+    });
+  }
+
+  updateHour();
+
+  $('#hour-9 .description').val(localStorage.getItem('hour-9'));
+  $('#hour-10 .description').val(localStorage.getItem('hour-10'));
+  $('#hour-11 .description').val(localStorage.getItem('hour-11'));
+  $('#hour-12 .description').val(localStorage.getItem('hour-12'));
+  $('#hour-1 .description').val(localStorage.getItem('hour-1'));
+  $('#hour-2 .description').val(localStorage.getItem('hour-2'));
+  $('#hour-3 .description').val(localStorage.getItem('hour-3'));
+  $('#hour-4 .description').val(localStorage.getItem('hour-4'));
+  $('#hour-5 .description').val(localStorage.getItem('hour-5'));
+
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
