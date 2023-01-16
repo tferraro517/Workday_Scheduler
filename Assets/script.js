@@ -1,6 +1,9 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+    $('#currentDay').text(dayjs().format('MMMM dddd, YYYY'));
+  
 $(function () {
   var saveBtn = $(".saveBtn");
 
@@ -15,11 +18,7 @@ $(function () {
 
     var today = dayjs().format('h.mm.ss');
     console.log($('#currentDay').text(today));
-    // var today = dayjs();
-    // $('currentDay').text(day.format('MMMM dddd, YYYY'));
-    // dayjs.isDayjs(dayjs()) // true
-    // dayjs.isDayjs(new Date()) // false
-    // dayNum =+ 1;
+
   });
 
   // TODO: Add a listener for click events on the save button. This code should
