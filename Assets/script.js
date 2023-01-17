@@ -1,5 +1,5 @@
 // current time
-$("#currentDay").text(dayjs().format("MMMM dddd, YYYY"));
+$("#currentDay").text(dayjs().format("dddd, MMMM D YYYY"));
 
 // button to save notes
 $(function () {
